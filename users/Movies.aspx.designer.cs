@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MovieDetailsCRUD
+namespace users
 {
 
 
-    public partial class Default
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -24,6 +24,15 @@ namespace MovieDetailsCRUD
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// txtId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtId;
+
+        /// <summary>
         /// txtMovieName control.
         /// </summary>
         /// <remarks>
@@ -33,40 +42,13 @@ namespace MovieDetailsCRUD
         protected global::System.Web.UI.WebControls.TextBox txtMovieName;
 
         /// <summary>
-        /// txtStartDate control.
+        /// txtDirector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
-
-        /// <summary>
-        /// txtDuration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDuration;
-
-        /// <summary>
-        /// txtDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
-
-        /// <summary>
-        /// txtAuthor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAuthor;
+        protected global::System.Web.UI.WebControls.TextBox txtDirector;
 
         /// <summary>
         /// btnAdd control.

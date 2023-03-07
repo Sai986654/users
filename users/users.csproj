@@ -161,12 +161,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MovieDetails.aspx.cs">
-      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    <Compile Include="Movies.aspx.cs">
+      <DependentUpon>Movies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MovieDetails.aspx.designer.cs">
-      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    <Compile Include="Movies.aspx.designer.cs">
+      <DependentUpon>Movies.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -203,7 +203,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="MovieDetails.aspx" />
+    <Content Include="Movies.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
