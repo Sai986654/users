@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Movies.aspx.cs" Inherits="users.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Movies.aspx.cs" Inherits="users.Movies" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="gvMovieDetails" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="gvMovieDetails" runat="server" AutoGenerateColumns="false" OnRowCommand="gvMovieDetails_RowCommand" OnRowDataBound="gvMovieDetails_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="ID" HeaderText="Movie ID" />
                     <asp:BoundField DataField="Name" HeaderText="Movie Name" />
