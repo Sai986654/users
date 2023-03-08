@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace users
 {
-    [Authorize(Roles = "Admin, Manager")]
+    //[Authorize(Roles = "Admin, Manager")]
     public partial class Movies : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
