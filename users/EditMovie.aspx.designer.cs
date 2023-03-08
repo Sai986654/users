@@ -11,7 +11,7 @@ namespace users
 {
 
 
-    public partial class Movies
+    public partial class EditMovie
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace users
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtId control.
+        /// lblId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtId;
+        protected global::System.Web.UI.WebControls.Label lblId;
 
         /// <summary>
         /// txtMovieName control.
@@ -51,21 +51,12 @@ namespace users
         protected global::System.Web.UI.WebControls.TextBox txtDirector;
 
         /// <summary>
-        /// btnAdd control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// gvMovieDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMovieDetails;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

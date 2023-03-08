@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Http;
+using System.Web.Security;
+using System.Web.UI.WebControls;
 
 namespace users
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    [Authorize(Roles = "Admin, Manager")]
+    public partial class Movies : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,6 +57,65 @@ namespace users
                 else
                 {
                     Response.Write("Error occured while adding movie");
+                }
+            }
+        }
+
+        protected void gvMovieDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditRow")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMovieDetails.Rows[index];
+                int id = Convert.ToInt32(row.Cells[0].Text);
+                string name = row.Cells[1].Text;
+                string director = row.Cells[2].Text;
+                // perform any additional logic or redirection as needed
+                Response.Redirect("EditMovie.aspx?id=" + id);
+            }
+            else if (e.CommandName == "DeleteRow")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMovieDetails.Rows[index];
+                int id = Convert.ToInt32(row.Cells[0].Text);
+                DeleteMovieById(id);
+                BindMovies();
+            }
+        }
+
+        //protected void gvMovieDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        ButtonField btnEdit = (ButtonField)e.Row.Cells[3].Controls[0];
+        //        ButtonField btnDelete = (ButtonField)e.Row.Cells[4].Controls[0];
+        //        if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
+        //        {
+        //            btnEdit.Enabled = false;
+        //            btnDelete.Enabled = false;
+        //        }
+        //    }
+        //}
+
+        private void DeleteMovieById(int id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MovieDatabaseConnectionString"].ConnectionString;
+            string query = "DELETE FROM Movies WHERE ID = @ID";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", id);
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 1)
+                    {
+                        Response.Write("movie deleted successfully");
+                    }
+                    else
+                    {
+                        Response.Write("movie not found or multiple movies with same ID");
+                    }
                 }
             }
         }
