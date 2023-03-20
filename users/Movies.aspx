@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Movies.aspx.cs" Inherits="users.Movies" %>
+﻿<%@ Page Language="C#" trace ="true" AutoEventWireup="true" CodeBehind="Movies.aspx.cs" Inherits="users.Movies" %>
 
 <!DOCTYPE html>
 
@@ -10,10 +10,6 @@
     <form id="form1" runat="server">
         <div>
             <table>
-                <tr>
-                    <td>Movie ID:</td>
-                    <td><asp:TextBox ID="txtId" runat="server"></asp:TextBox></td>
-                </tr>
                 <tr>
                     <td>Movie Name:</td>
                     <td><asp:TextBox ID="txtMovieName" runat="server"></asp:TextBox></td>
@@ -27,7 +23,7 @@
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="gvMovieDetails" runat="server" AutoGenerateColumns="false" OnRowCommand="gvMovieDetails_RowCommand" OnRowDataBound="gvMovieDetails_RowDataBound">
+            <asp:GridView ID="gvMovieDetails" runat="server" AutoGenerateColumns="false" OnRowCommand="gvMovieDetails_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="ID" HeaderText="Movie ID" />
                     <asp:BoundField DataField="Name" HeaderText="Movie Name" />

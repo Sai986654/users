@@ -33,7 +33,6 @@ namespace users
         protected void ClearInputs()
         {
             txtMovieName.Text = "";
-            txtId.Text = "";
             txtDirector.Text = "";
         }
 
@@ -42,8 +41,7 @@ namespace users
             string connectionString = ConfigurationManager.ConnectionStrings["MovieDatabaseConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Movies (ID,Name, Director) VALUES (@ID,@Name, @Director);SELECT SCOPE_IDENTITY()", con);
-                cmd.Parameters.AddWithValue("@ID", txtId.Text);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Movies (Name, Director) VALUES (@Name, @Director);SELECT SCOPE_IDENTITY()", con);
                 cmd.Parameters.AddWithValue("@Name", txtMovieName.Text);
                 cmd.Parameters.AddWithValue("@Director", txtDirector.Text);
                 con.Open();
@@ -83,19 +81,19 @@ namespace users
             }
         }
 
-        //protected void gvMovieDetails_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        ButtonField btnEdit = (ButtonField)e.Row.Cells[3].Controls[0];
-        //        ButtonField btnDelete = (ButtonField)e.Row.Cells[4].Controls[0];
-        //        if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
-        //        {
-        //            btnEdit.Enabled = false;
-        //            btnDelete.Enabled = false;
-        //        }
-        //    }
-        //}
+        protected void gvMovieDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                ButtonField btnEdit = (ButtonField)gvMovieDetails.Columns[3];
+                ButtonField btnDelete = (ButtonField)gvMovieDetails.Columns[4];
+                if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
+                {
+                    btnEdit.Visible = false;
+                    btnDelete.Visible = false;
+                }
+            }
+        }
 
         private void DeleteMovieById(int id)
         {
